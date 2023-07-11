@@ -1,0 +1,442 @@
+:root {
+  --primary-color: #5637c5;
+  --primary-color-dim: #674cc9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+body .container {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+nav {
+  background-color: var(--primary-color);
+  background-image: url(../istockphoto-1127945274-612x612.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+nav ul li.active {
+  background-color: var(--primary-color-dim);
+}
+nav ul li a {
+  display: inline-block;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  padding: 1em;
+}
+nav ul li a:hover {
+  background-color: var(--primary-color-dim);
+}
+nav #search_container {
+  width: 50vw;
+  height: 50px;
+  max-width: 800px;
+  display: flex;
+  gap: 0.5em;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+  padding: 0.5em;
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media screen and (max-width: 800px) {
+  nav #search_container {
+    width: 90%;
+  }
+}
+nav #search_container:focus-within {
+  outline: 1px solid var(--primary-color);
+}
+nav #search_container input {
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  flex: 1;
+}
+nav #search_container input::placeholder {
+  opacity: 0.3;
+}
+nav #search_container select {
+  border: none;
+  padding: 0.3em 0.8em;
+  border-radius: 3px;
+  background-color: rgb(163, 163, 163);
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+nav #search_container select:hover {
+  background-color: rgba(163, 163, 163, 0.8);
+}
+nav #search_container button {
+  background-color: var(--primary-color);
+  color: white;
+  text-transform: uppercase;
+  padding: 0.3em 0.5em;
+  border-radius: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+nav #search_container button:hover {
+  background-color: var(--primary-color-dim);
+}
+
+nav#homenav {
+  height: 30vh;
+}
+
+main {
+  min-height: 90vh;
+  padding: 5em 0;
+}
+main .container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+}
+
+main#homepage table {
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 500px;
+}
+main#homepage table th {
+  padding: 0.5em 0;
+  text-align: left;
+  color: gray;
+}
+main#homepage table td {
+  border-bottom: 1px solid grey;
+  padding: 0.5em 0;
+}
+main#homepage table .key {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+main#homepage table .value {
+  width: 60%;
+}
+
+main#schoolpage #search_container {
+  width: 50vw;
+  height: 50px;
+  max-width: 800px;
+  display: flex;
+  gap: 0.5em;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+  padding: 0.5em;
+}
+@media screen and (max-width: 800px) {
+  main#schoolpage #search_container {
+    width: 90%;
+  }
+}
+main#schoolpage #search_container:focus-within {
+  outline: 1px solid var(--primary-color);
+}
+main#schoolpage #search_container input {
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  flex: 1;
+}
+main#schoolpage #search_container input::placeholder {
+  opacity: 0.3;
+}
+main#schoolpage #search_container select {
+  border: none;
+  padding: 0.3em 0.8em;
+  border-radius: 3px;
+  background-color: rgb(163, 163, 163);
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+main#schoolpage #search_container select:hover {
+  background-color: rgba(163, 163, 163, 0.8);
+}
+main#schoolpage #search_container button {
+  background-color: var(--primary-color);
+  color: white;
+  text-transform: uppercase;
+  padding: 0.3em 0.5em;
+  border-radius: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+main#schoolpage #search_container button:hover {
+  background-color: var(--primary-color-dim);
+}
+main#schoolpage table {
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 2em;
+}
+main#schoolpage table th {
+  padding: 0.5em 0;
+  text-align: left;
+  color: gray;
+}
+main#schoolpage table td {
+  border-bottom: 1px solid grey;
+  padding: 0.5em 0.3em;
+}
+main#schoolpage table .key {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+main#schoolpage table .year {
+  background-color: var(--primary-color);
+  color: white;
+}
+main#schoolpage table .value {
+  width: 60%;
+}
+
+main#compare #search_container {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+  padding: 0.5em;
+}
+@media screen and (max-width: 800px) {
+  main#compare #search_container {
+    width: 90%;
+  }
+}
+main#compare #search_container label {
+  display: inline-block;
+  font-size: 0.8rem;
+  margin-bottom: 0.5em;
+}
+main#compare #search_container input {
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 0.5rem 0.3rem;
+  flex: 1;
+  margin-bottom: 0.5em;
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  border-radius: 5px;
+}
+main#compare #search_container input::placeholder {
+  opacity: 0.3;
+}
+main#compare #search_container input:focus {
+  outline: 1px solid var(--primary-color);
+}
+main#compare #search_container select {
+  display: block;
+  border: none;
+  padding: 0.5em 0.8em;
+  border-radius: 3px;
+  background-color: rgb(163, 163, 163);
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-size: 1rem;
+  width: fit-content;
+}
+main#compare #search_container select:hover {
+  background-color: rgba(163, 163, 163, 0.8);
+}
+main#compare #search_container button {
+  background-color: var(--primary-color);
+  color: white;
+  text-transform: uppercase;
+  padding: 0.5em;
+  border-radius: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-size: 1.3rem;
+  margin-top: 0.5em;
+}
+main#compare #search_container button:hover {
+  background-color: var(--primary-color-dim);
+}
+main#compare table {
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 2em;
+}
+main#compare table th {
+  padding: 0.5em 0;
+  text-align: left;
+  color: gray;
+}
+main#compare table td {
+  border-bottom: 1px solid grey;
+  padding: 0.5em 0.3em;
+}
+main#compare table .key {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+main#compare table .year {
+  background-color: var(--primary-color);
+  color: white;
+}
+main#compare table .value {
+  width: 60%;
+}
+
+main#comparisonpage #search_container {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+  padding: 0.5em;
+}
+@media screen and (max-width: 800px) {
+  main#comparisonpage #search_container {
+    width: 90%;
+  }
+}
+main#comparisonpage #search_container label {
+  display: inline-block;
+  font-size: 0.8rem;
+  margin-bottom: 0.5em;
+}
+main#comparisonpage #search_container input {
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 0.5rem 0.3rem;
+  flex: 1;
+  margin-bottom: 0.5em;
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  border-radius: 5px;
+}
+main#comparisonpage #search_container input::placeholder {
+  opacity: 0.3;
+}
+main#comparisonpage #search_container input:focus {
+  outline: 1px solid var(--primary-color);
+}
+main#comparisonpage #search_container select {
+  display: block;
+  border: none;
+  padding: 0.5em 0.8em;
+  border-radius: 3px;
+  background-color: rgb(163, 163, 163);
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-size: 1rem;
+  width: fit-content;
+}
+main#comparisonpage #search_container select:hover {
+  background-color: rgba(163, 163, 163, 0.8);
+}
+main#comparisonpage #search_container button {
+  background-color: var(--primary-color);
+  color: white;
+  text-transform: uppercase;
+  padding: 0.5em;
+  border-radius: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-size: 1.3rem;
+  margin-top: 0.5em;
+}
+main#comparisonpage #search_container button:hover {
+  background-color: var(--primary-color-dim);
+}
+main#comparisonpage table {
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 1em;
+}
+main#comparisonpage table th {
+  padding: 0.5em 0;
+  text-align: left;
+  color: gray;
+}
+main#comparisonpage table td {
+  border-bottom: 1px solid grey;
+  padding: 0.5em 0.3em;
+}
+main#comparisonpage table .key {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+main#comparisonpage table .header {
+  background-color: var(--primary-color);
+  color: white;
+}
+main#comparisonpage table .value {
+  min-width: 30%;
+}
+
+footer {
+  background-color: black;
+  color: rgb(59, 59, 59);
+  padding: 1em 0;
+}
+footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

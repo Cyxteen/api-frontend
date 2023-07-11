@@ -1,0 +1,370 @@
+:root {
+    --primary-color: #5637c5;
+    --primary-color-dim: #674cc9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    .container {
+        width: 100%;
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 1em;
+    }
+}
+
+li {list-style: none;}
+a {text-decoration: none; color: black;}
+button {background-color: transparent; border: none;}
+input {background-color: transparent; outline: none; border: none;}
+
+nav {
+    background-color: var(--primary-color);
+    background-image: url(../istockphoto-1127945274-612x612.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+
+    ul {display: flex; justify-content: center;gap: 2em;}
+    ul li.active {background-color: var(--primary-color-dim);}
+    ul li a { display: inline-block; color: white; text-transform: uppercase; font-size: 0.85rem; padding: 1em;}
+    ul li a:hover { background-color: var(--primary-color-dim);}
+
+    #search_container {
+        width: 50vw;
+        height: 50px;
+        max-width: 800px;
+        display: flex;
+        gap: .5em;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 0 5px 5px rgba(black,.1);
+        padding: .5em;
+
+        position: absolute;
+        bottom: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        @media screen and (max-width: 800px){
+            width: 90%;
+        }
+
+        &:focus-within {
+            outline: 1px solid var(--primary-color);
+        }
+
+        input {width: 100%; font-size: 1.2rem; padding: .3rem; flex: 1;}
+        input::placeholder { opacity: .3;}
+        select {
+            border: none;
+            padding: .3em .8em;
+            border-radius: 3px;
+            background-color: rgb(163, 163, 163);
+            color: white;
+            text-transform: uppercase;
+            cursor: pointer;
+            flex-shrink: 0;
+
+            &:hover { background-color: rgba(163, 163, 163,.8);}
+        }
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            text-transform: uppercase;
+            padding: .3em .5em;
+            border-radius: 5px;
+            cursor: pointer;
+            flex-shrink: 0;
+
+            &:hover { background-color: var(--primary-color-dim)}
+        }
+    }
+}
+
+nav#homenav {
+    height: 30vh;
+}
+
+main {
+    min-height: 90vh;
+    padding: 5em 0;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        align-items: center;
+    }
+}
+
+main#homepage{
+
+    table {
+        border: none;
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 500px;
+
+        th {
+            padding: .5em 0;
+            text-align: left;
+            color: gray;
+        }
+
+        td {
+            border-bottom: 1px solid grey;
+            padding: .5em 0;
+        }
+
+
+        .key {font-weight: bold; text-transform: uppercase;}
+        .value {width: 60%;}
+    }
+
+}
+
+main#schoolpage{
+    #search_container {
+        width: 50vw;
+        height: 50px;
+        max-width: 800px;
+        display: flex;
+        gap: .5em;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 0 5px 5px rgba(black,.1);
+        padding: .5em;
+
+        // position: absolute;
+        // bottom: -25px;
+        // left: 50%;
+        // transform: translateX(-50%);
+
+        @media screen and (max-width: 800px){
+            width: 90%;
+        }
+
+        &:focus-within {
+            outline: 1px solid var(--primary-color);
+        }
+
+        input {width: 100%; font-size: 1.2rem; padding: .3rem; flex: 1;}
+        input::placeholder { opacity: .3;}
+        select {
+            border: none;
+            padding: .3em .8em;
+            border-radius: 3px;
+            background-color: rgb(163, 163, 163);
+            color: white;
+            text-transform: uppercase;
+            cursor: pointer;
+            flex-shrink: 0;
+
+            &:hover { background-color: rgba(163, 163, 163,.8);}
+        }
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            text-transform: uppercase;
+            padding: .3em .5em;
+            border-radius: 5px;
+            cursor: pointer;
+            flex-shrink: 0;
+
+            &:hover { background-color: var(--primary-color-dim)}
+        }
+    }
+
+    table {
+        border: none;
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 500px;
+        margin-top: 2em;
+
+        th {
+            padding: .5em 0;
+            text-align: left;
+            color: gray;
+        }
+
+        td {
+            border-bottom: 1px solid grey;
+            padding: .5em .3em
+        }
+
+
+        .key {font-weight: bold; text-transform: uppercase;}
+        .year {background-color: var(--primary-color);color: white;}
+        .value {width: 60%;}
+    }
+}
+
+main#compare{
+    #search_container {
+        width: 100%;
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: .5em;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 0 5px 5px rgba(black,.1);
+        padding: .5em;
+
+
+        @media screen and (max-width: 800px){
+            width: 90%;
+        }
+
+        label {display: inline-block; font-size: .8rem; margin-bottom: .5em;}
+        input {width: 100%; font-size: 1.2rem; padding: .5rem .3rem; flex: 1; margin-bottom: .5em; border: 1px solid rgba(gray,.5); border-radius: 5px;}
+        input::placeholder { opacity: .3;}
+        input:focus {outline: 1px solid var(--primary-color);}
+        select {
+            display: block;
+            border: none;
+            padding: .5em .8em;
+            border-radius: 3px;
+            background-color: rgb(163, 163, 163);
+            color: white;
+            text-transform: uppercase;
+            cursor: pointer;
+            flex-shrink: 0;
+            font-size: 1rem;
+            width: fit-content;
+
+            &:hover { background-color: rgba(163, 163, 163,.8);}
+        }
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            text-transform: uppercase;
+            padding: .5em;
+            border-radius: 5px;
+            cursor: pointer;
+            flex-shrink: 0;
+            font-size: 1.3rem;
+            margin-top: .5em;
+
+            &:hover { background-color: var(--primary-color-dim)}
+        }
+    }
+
+    table {
+        border: none;
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 500px;
+        margin-top: 2em;
+
+        th {
+            padding: .5em 0;
+            text-align: left;
+            color: gray;
+        }
+
+        td {
+            border-bottom: 1px solid grey;
+            padding: .5em .3em
+        }
+
+
+        .key {font-weight: bold; text-transform: uppercase;}
+        .year {background-color: var(--primary-color);color: white;}
+        .value {width: 60%;}
+    }
+}
+
+main#comparisonpage{
+    #search_container {
+        width: 100%;
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: .5em;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 0 5px 5px rgba(black,.1);
+        padding: .5em;
+
+
+        @media screen and (max-width: 800px){
+            width: 90%;
+        }
+
+        label {display: inline-block; font-size: .8rem; margin-bottom: .5em;}
+        input {width: 100%; font-size: 1.2rem; padding: .5rem .3rem; flex: 1; margin-bottom: .5em; border: 1px solid rgba(gray,.5); border-radius: 5px;}
+        input::placeholder { opacity: .3;}
+        input:focus {outline: 1px solid var(--primary-color);}
+        select {
+            display: block;
+            border: none;
+            padding: .5em .8em;
+            border-radius: 3px;
+            background-color: rgb(163, 163, 163);
+            color: white;
+            text-transform: uppercase;
+            cursor: pointer;
+            flex-shrink: 0;
+            font-size: 1rem;
+            width: fit-content;
+
+            &:hover { background-color: rgba(163, 163, 163,.8);}
+        }
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            text-transform: uppercase;
+            padding: .5em;
+            border-radius: 5px;
+            cursor: pointer;
+            flex-shrink: 0;
+            font-size: 1.3rem;
+            margin-top: .5em;
+
+            &:hover { background-color: var(--primary-color-dim)}
+        }
+    }
+
+    table {
+        border: none;
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 500px;
+        margin-top: 1em;
+
+        th {
+            padding: .5em 0;
+            text-align: left;
+            color: gray;
+        }
+
+        td {
+            border-bottom: 1px solid grey;
+            padding: .5em .3em
+        }
+
+
+        .key {font-weight: bold; text-transform: uppercase;}
+        .header {background-color: var(--primary-color);color: white;}
+        .value {min-width: 30%;}
+    }
+}
+
+footer {
+    background-color: black;
+    color: rgb(59, 59, 59);
+    padding: 1em 0;
+
+    .container {display: flex;align-items: center;justify-content: center;}
+}
