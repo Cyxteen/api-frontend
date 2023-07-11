@@ -38,42 +38,45 @@ if (isset($_POST['login'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./resources/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./resources/style.css">
     <title>Login</title>
+    <link rel="stylesheet" href="./resources/styles/index.css">
 </head>
-
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="login-form">
-                <div class="login align-middle">
-                    <h3 style="text-align: center;">Login</h3>
-                    <?php if (isset($msg)) {echo $msg;} ?>
-                    <form action="" method="post">
-                        <div class="mb-3 mt-3">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="email" class="form-control" name="username" id="username" placeholder="e.g a@b.com" required>
-                        </div>
-                        <div class="mb-3 mt-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
-                        </div>
-                        <div class="mycentered-text d-grid gap-2 col-4 mx-auto mt-4">
-                            <input type="submit" class="btn btn-secondary" name="login" id="login" value="Login">
-                        </div>
-                        <div class="mycentered-text d-grid gap-2 col-8 mx-auto mt-3">
-                            <p>Don't have an account? <a href="./auth/register.php">Register</a></p>
-                        </div>
-                    </form>
-                </div>
+    <main id="auth">
+        <div class="separator left-separator">
+            <div class="separator-wrapper">
+                <h1>API Frontend</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nemo totam sint est sit placeat, suscipit blanditiis quod officia error!</p>
             </div>
         </div>
-    </div>
+        <div class="separator right-separator">
+            <div class="separator-wrapper">
+                <div id="mobile-header">
+                    <h1>API Frontend</h1>
+                    <h3>Login</h3>
+                </div>
+                <form action="" method="post">
+                    <div class="">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="email" class="" name="username" id="username" placeholder="e.g a@b.com" required>
+                    </div>
+                    <div class="">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="" name="password" id="password" placeholder="Password" required>
+                    </div>
+                    <div class="">
+                        <button type="submit" class="" name="login" id="login">Login</button>
+                    </div>
+                    <?php if (isset($msg)) {echo '<div id="alert" class="show" role="alert">'. $msg .'</div>';} ?>
+                    <div class="">
+                        <p>Don't have an account? <a href="./auth/register.php">Register</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
 </body>
-
 </html>

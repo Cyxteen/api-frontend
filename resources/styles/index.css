@@ -129,7 +129,6 @@ nav#homenav {
 
 main {
   min-height: 90vh;
-  padding: 5em 0;
 }
 main .container {
   display: flex;
@@ -138,6 +137,131 @@ main .container {
   align-items: center;
 }
 
+main#auth {
+  height: 100vh;
+  display: flex;
+}
+main#auth .separator {
+  display: flex;
+}
+main#auth .separator-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1em;
+  height: 100%;
+  width: 100%;
+  max-width: 800px;
+}
+main#auth .left-separator {
+  justify-content: end;
+  flex: 1;
+  background-color: var(--primary-color);
+  color: white;
+}
+main#auth .left-separator h1 {
+  margin-bottom: 1em;
+}
+main#auth .left-separator p {
+  max-width: 300px;
+  text-align: center;
+}
+main#auth .right-separator {
+  justify-content: start;
+  flex: 2;
+}
+main#auth .right-separator #mobile-header {
+  display: none;
+}
+main#auth .right-separator #mobile-header h1 {
+  color: var(--primary-color);
+}
+main#auth .right-separator #mobile-header h3 {
+  margin-bottom: 3em;
+  text-align: center;
+}
+main#auth form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+  padding: 0.5em;
+}
+main#auth form label {
+  display: inline-block;
+  font-size: 0.8rem;
+  margin-bottom: 0.5em;
+}
+main#auth form input {
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 0.5rem 0.3rem;
+  flex: 1;
+  margin-bottom: 0.5em;
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  border-radius: 5px;
+}
+main#auth form input::placeholder {
+  opacity: 0.3;
+}
+main#auth form input:focus {
+  outline: 1px solid var(--primary-color);
+}
+main#auth form button[type=submit] {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: white;
+  text-transform: uppercase;
+  padding: 0.5em;
+  border-radius: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-size: 1.3rem;
+  margin-top: 0.5em;
+  margin-bottom: 0.3em;
+}
+main#auth form button[type=submit]:hover {
+  background-color: var(--primary-color-dim);
+}
+main#auth form a {
+  color: var(--primary-color);
+}
+main#auth form a:hover {
+  text-decoration: underline;
+}
+main#auth form #alert {
+  background-color: rgb(214, 72, 72);
+  padding: 0.3em;
+  text-align: center;
+  border-radius: 3px;
+  color: white;
+  opacity: 1;
+}
+main#auth form #alert.show {
+  opacity: 1;
+}
+@media screen and (max-width: 900px) {
+  main#auth .left-separator {
+    display: none;
+  }
+  main#auth .right-separator #mobile-header {
+    display: block;
+  }
+}
+@media screen and (min-width: 1800px) {
+  main#auth .separator {
+    flex: 1;
+  }
+}
+
+main#homepage {
+  padding: 5em 0;
+}
 main#homepage table {
   border: none;
   border-collapse: collapse;
@@ -161,6 +285,9 @@ main#homepage table .value {
   width: 60%;
 }
 
+main#schoolpage {
+  padding: 5em 0;
+}
 main#schoolpage #search_container {
   width: 50vw;
   height: 50px;
@@ -242,6 +369,9 @@ main#schoolpage table .value {
   width: 60%;
 }
 
+main#compare {
+  padding: 5em 0;
+}
 main#compare #search_container {
   width: 100%;
   max-width: 400px;
@@ -336,6 +466,9 @@ main#compare table .value {
   width: 60%;
 }
 
+main#comparisonpage {
+  padding: 5em 0;
+}
 main#comparisonpage #search_container {
   width: 100%;
   max-width: 400px;

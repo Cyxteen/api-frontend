@@ -38,46 +38,49 @@ if (isset($_POST['register'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../resources/style.css">
     <title>Register</title>
+    <link rel="stylesheet" href="../resources/styles/index.css">
 </head>
-
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="login-form">
-                <div class="login align-middle">
-                    <h3 style="text-align: center;">Register</h3>
-                    <?php if (isset($msg)) {echo '<div class="alert alert-danger" role="alert" style="text-align: center;">'. $msg .'</div>';} ?>
-                    <form action="" method="post">
-                        <div class="mb-3 mt-3">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
-                        </div>
-                        <div class="mb-3 mt-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" name="email" id="email" placeholder="e.g a@b.com" required>
-                        </div>
-                        <div class="mb-3 mt-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
-                        </div>
-                        <div class="mycentered-text d-grid gap-2 col-4 mx-auto mt-4">
-                            <input type="submit" class="btn btn-secondary" name="register" id="register" value="Register">
-                        </div>
-                        <div class="mycentered-text d-grid gap-2 col-8 mx-auto mt-3">
-                            <p>Have an account already? <a href="index.php">Login</a></p>
-                        </div>
-                    </form>
-                </div>
+    <main id="auth">
+        <div class="separator left-separator">
+            <div class="separator-wrapper">
+                <h1>API Frontend</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nemo totam sint est sit placeat, suscipit blanditiis quod officia error!</p>
             </div>
         </div>
-    </div>
+        <div class="separator right-separator">
+            <div class="separator-wrapper">
+                <div id="mobile-header">
+                    <h1>API Frontend</h1>
+                    <h3>Register</h3>
+                </div>
+                <form action="" method="post">
+                    <div class="">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="" name="username" id="username" placeholder="Username" required>
+                    </div>
+                    <div class="">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="" name="email" id="email" placeholder="e.g a@b.com" required>
+                    </div>
+                    <div class="">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="" name="password" id="password" placeholder="Password" required>
+                    </div>
+                    <div class="">
+                        <button type="submit" class="" name="register" id="register">Register</button>
+                    </div>
+                    <?php if (isset($msg)) {echo '<div id="alert" class="show" role="alert">'. $msg .'</div>';} ?>
+                    <div class="">
+                        <p>Already have an account? <a href="../index.php">Login</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
 </body>
-
 </html>
