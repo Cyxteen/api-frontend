@@ -10,7 +10,7 @@
     <nav>
         <div class="container">
             <ul>
-                <li><a href="../index.php">Home</a></li>
+                <li><a href="./index.php">Student</a></li>
                 <li class="active"><a href="./school.php">School</a></li>
                 <li><a href="./compare.php">Compare</a></li>
             </ul>

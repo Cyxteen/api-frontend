@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="./resources/styles/index.css">
+    <link rel="stylesheet" href="../resources/styles/index.css">
 </head>
 <body>
     <nav id="homenav">
         <div class="container">
             <ul>
-                <li class="active"><a href="index.php">Home</a></li>
-                <li><a href="./pages/school.php">School</a></li>
-                <li><a href="./pages/compare.php">Compare</a></li>
+                <li class="active"><a href="./index.php">Student</a></li>
+                <li><a href="./school.php">School</a></li>
+                <li><a href="./compare.php">Compare</a></li>
             </ul>
         </div>
         <form action="" method="post">
