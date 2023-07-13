@@ -1,11 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>School</title>
     <link rel="stylesheet" href="../resources/styles/index.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/smoothness/jquery-ui.css" />
+    <style>
+        .ui-autocomplete {
+            max-height: 200px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            /* background-color: #fff;
+            border: 1px solid #ccc; */
+        }
+
+        .ui-autocomplete .ui-menu-item {
+            padding: 5px;
+            cursor: pointer;
+        }
+        .ui-autocomplete .ui-state-active {
+            background-color: #007bff;
+            color: grey;
+        }
+    </style>
 </head>
+
 <body>
     <nav>
         <div class="container">
@@ -21,14 +44,34 @@
         <div class="container">
             <form action="" method="post">
                 <div id="search_container">
-                    <input type="text" placeholder="Search school"/>
-                    <select name="" id="">
+                    <select name="school_level" id="school_level">
                         <option value="csee">CSEE</option>
                         <option value="acsee">ACSEE</option>
                     </select>
-                    <select name="" id="">
-                        <option value="csee">CSEE</option>
-                        <option value="acsee">ACSEE</option>
+                    <input type="text" placeholder="Search school" id="search_school" />
+                    <select name="from" id="from">
+                        <option value="">From</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                    </select>
+                    <select name="to" id="to">
+                        <option value="">To</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
                     </select>
                     <button>find results</button>
                 </div>
@@ -90,5 +133,7 @@
             <p>Copyright &copy 2023 Arusha technical college</p>
         </div>
     </footer>
+    <script src="../resources/utils.js"></script>
 </body>
+
 </html>
