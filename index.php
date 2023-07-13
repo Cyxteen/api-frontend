@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (isset($_POST['login'])) {
     // Retrieve the submitted username and password
     $username = trim(stripslashes(htmlspecialchars($_POST['username'])));
@@ -25,9 +26,11 @@ if (isset($_POST['login'])) {
     if ($httpCode === 200) {
         session_start();
         $access_token = $response->access_token;
-        $token_type = $response->access_token;
-
-        header('Location: ../compare.php');
+        $token_type = $response->token_type;
+        $tokken = $token_type." ".$access_token;
+        $_SESSION['token'] = $tokken;
+        $_SESSION['login_time'] = time();
+        header('Location: ./pages/');
         exit();
     } else {
         $detail = $response->detail;

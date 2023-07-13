@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (empty($_SESSION['email'])) {
-    header("location: index.php");
+    header("location: ../index.php");
     die();
 }
 if (!empty($_SESSION['email'])) {

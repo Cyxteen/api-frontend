@@ -13,6 +13,7 @@
                 <li><a href="./index.php">Student</a></li>
                 <li class="active"><a href="./school.php">School</a></li>
                 <li><a href="./compare.php">Compare</a></li>
+                <li><a href="../auth/logout.php">Logout</a></li>
             </ul>
         </div>
     </nav>
@@ -21,6 +22,10 @@
             <form action="" method="post">
                 <div id="search_container">
                     <input type="text" placeholder="Search school"/>
+                    <select name="" id="">
+                        <option value="csee">CSEE</option>
+                        <option value="acsee">ACSEE</option>
+                    </select>
                     <select name="" id="">
                         <option value="csee">CSEE</option>
                         <option value="acsee">ACSEE</option>

@@ -13,6 +13,7 @@
                 <li><a href="./index.php">Student</a></li>
                 <li><a href="./school.php">School</a></li>
                 <li class="active"><a href="./compare.php">Compare</a></li>
+                <li><a href="../auth/logout.php">Logout</a></li>
             </ul>
         </div>
     </nav>

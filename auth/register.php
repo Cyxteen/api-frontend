@@ -11,9 +11,9 @@ if (isset($_POST['register'])) {
         'password' => $password
     );
     $data = json_encode($data);
-    $apiEndpoint = 'http://localhost:8000/user/register';
+    $apiUrl = 'http://localhost:8000/user/register';
 
-    $ch = curl_init($apiEndpoint);
+    $ch = curl_init($apiUrl);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
