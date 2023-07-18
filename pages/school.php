@@ -1,6 +1,51 @@
+<?php
+session_start();
+include_once('../resources/activity.php');
+if (empty($_SESSION['token'])) {
+    header("location: ../index.php");
+    die();
+} else {
+    $token = $_SESSION['token'];
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $schoolname = trim(stripslashes(htmlspecialchars($_POST['school_name'])));
+    $schoollevel = trim(stripslashes(htmlspecialchars($_POST['school_level'])));
+    $from = trim(stripslashes(htmlspecialchars($_POST['from'])));
+    $to = trim(stripslashes(htmlspecialchars($_POST['to'])));
+
+    $apiUrl = 'http://localhost:8000/results/school';
+    $data = array(
+        'school_name'=> $schoolname,
+        'school_level'=> $schoollevel,
+        'start_year'=> $from,
+        'end_year'=> $to
+    );
+    $data = json_encode($data);
+
+    $ch = curl_init($apiUrl);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'Content-Type: application/json',
+        'Authorization: ' . $token
+    ));
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+
+    $response = curl_exec($ch);
+    $response = json_decode($response);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+    curl_close($ch);
+
+    if ($httpCode != 200) {
+        $detail = $response->error;
+        $msg = "An error occurred. " . $detail;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,8 +93,8 @@
                         <option value="csee">CSEE</option>
                         <option value="acsee">ACSEE</option>
                     </select>
-                    <input type="text" placeholder="Search school" id="search_school" />
-                    <select name="from" id="from">
+                    <input type="text" placeholder="Search school" id="search_school" name="school_name" required/>
+                    <select name="from" id="from" required>
                         <option value="">From</option>
                         <option value="2022">2022</option>
                         <option value="2021">2021</option>
@@ -61,7 +106,7 @@
                         <option value="2015">2015</option>
                         <option value="2014">2014</option>
                     </select>
-                    <select name="to" id="to">
+                    <select name="to" id="to" required>
                         <option value="">To</option>
                         <option value="2022">2022</option>
                         <option value="2021">2021</option>
@@ -76,56 +121,52 @@
                     <button>find results</button>
                 </div>
             </form>
-            <table>
-                <thead>
-                    <th colspan="2">School information</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="key">School name</td>
-                        <td class="value">Arusha technical college</td>
-                    </tr>
-                    <tr>
-                        <td class="key">Registation ID</td>
-                        <td class="value">D2005501111</td>
-                    </tr>
-                    <tr>
-                        <td class="key">Region</td>
-                        <td class="value">Arusha</td>
-                    </tr>
-                </tbody>
-            </table>
-            <table>
-                <thead>
-                    <th colspan="2">Results</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="key year">Year</td>
-                        <td class="value year">2022</td>
-                    </tr>
-                    <tr>
-                        <td class="key">Division I</td>
-                        <td class="value">4</td>
-                    </tr>
-                    <tr>
-                        <td class="key">Division II</td>
-                        <td class="value">15</td>
-                    </tr>
-                    <tr>
-                        <td class="key">Division III</td>
-                        <td class="value">23</td>
-                    </tr>
-                    <tr>
-                        <td class="key">Division IV</td>
-                        <td class="value">10</td>
-                    </tr>
-                    <tr>
-                        <td class="key">Fail</td>
-                        <td class="value">2</td>
-                    </tr>
-                </tbody>
-            </table>
+            <?php
+            if (isset($response)) {
+                if ($response->error == null) {
+                    $school_name = $response->school_name;
+                    $registration_number = $response->registration_number;
+                    $results = $response->data;
+
+                    echo '
+                    <table>
+                        <thead>
+                            <th colspan="2">School information</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="key">School name</td>
+                                <td class="value">'.strtoupper($school_name).'</td>
+                            </tr>
+                            <tr>
+                                <td class="key">Registration ID</td>
+                                <td class="value">'.$registration_number.'</td>
+                            </tr>
+                        </tbody>
+                    </table>';
+                    foreach ($results as $year => $result) {
+                        echo '<table>
+                        <thead>
+                            <th colspan="2">Results</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="key year">Year</td>
+                                <td class="value year">'.$year.'</td>
+                            </tr>';
+                            foreach ($result as $key => $value) {
+                                echo '<tr>
+                                <td class="key">' . ucfirst(str_replace('_', ' ', $key)) . '</td>
+                                <td class="value">' . $value . '</td>
+                                </tr>';
+                            }
+                            echo '</tbody></table>';
+                    }
+                }else {
+                    print($response->error);
+                }
+            }
+            ?>
         </div>
     </main>
     <footer>

@@ -8,7 +8,7 @@ if (!empty($_SESSION['email'])) {
     $email = $_SESSION['email'];    
 }
 
-if (isset($_POST['verify'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user_email = $email;
     $verification_code = trim(stripslashes(htmlspecialchars($_POST['verification_code'])));
 
@@ -34,7 +34,7 @@ if (isset($_POST['verify'])) {
     if ($httpCode == 202) {
         session_destroy();
         unset($_SESSION['email']);
-        header("location: index.php");
+        header("location: ../index.php");
         die();
     } else {
         $msg = "Verification failed!";
@@ -44,40 +44,44 @@ if (isset($_POST['verify'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../resources/style.css">
-    <title>Email Verification</title>
+    <title>Verification</title>
+    <link rel="stylesheet" href="../resources/styles/index.css">
 </head>
-
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="login-form">
-                <div class="login align-middle">
-                    <h3 style="text-align: center;">Email Verification</h3>
-                    <?php if (isset($msg)) {
-                        echo '<div class="alert alert-danger" role="alert" style="text-align: center;">'. $msg .'</div>';} ?>
-                    <form action="" method="post">
-                        <div class="mb-3 mt-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" name="email" id="email" value="<?php echo $email ?>" disabled>
-                        </div>
-                        <div class="mb-3 mt-3">
-                            <label for="verification_code" class="form-label">Verification Code</label>
-                            <input type="text" class="form-control" name="verification_code" id="verification_code" placeholder="" required>
-                        </div>
-                        <div class="mycentered-text d-grid gap-2 col-4 mx-auto mt-4">
-                            <input type="submit" class="btn btn-secondary" name="verify" id="verify" value="Verify">
-                        </div>
-                    </form>
-                </div>
+    <main id="auth">
+        <div class="separator left-separator">
+            <div class="separator-wrapper">
+                <h1>API Frontend</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nemo totam sint est sit placeat, suscipit blanditiis quod officia error!</p>
             </div>
         </div>
-    </div>
+        <div class="separator right-separator">
+            <div class="separator-wrapper">
+                <div id="mobile-header">
+                    <h1>API Frontend</h1>
+                    <h3>Login</h3>
+                </div>
+                <form action="" method="post">
+                    <h2 style="text-align: center;">Email Verification</h2>
+                    <p style="text-align: center; margin-bottom: 20px; color: gray;">Message with the verification code was sent to this email address. Check your email</p>
+                    <div class="">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="email" class="form-control" name="email" id="email" value="<?php echo $email ?>" disabled>
+                    </div>
+                    <div class="">
+                        <label for="password" class="form-label">Verification Code</label>
+                        <input type="text" class="form-control" name="verification_code" id="verification_code" placeholder="" required>
+                    </div>
+                    <div class="">
+                        <button type="submit" class="" name="login" id="login">Verify</button>
+                    </div>
+                    <?php if (isset($msg)) {echo '<div id="alert" class="show" role="alert">'. $msg .'</div>';} ?>
+                </form>
+            </div>
+        </div>
+    </main>
 </body>
-
 </html>
